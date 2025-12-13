@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect, KeyboardEvent } from 'react';
-import { motion, AnimatePresence, useDragControls, Reorder, DragControls } from 'framer-motion';
+import React, { useState, type KeyboardEvent } from 'react';
+import { motion, AnimatePresence, useDragControls, Reorder } from 'framer-motion';
 import { Search, Save, Users, X, Plus, Trash2, GripVertical, MousePointerClick, ArrowDown, Edit2 } from 'lucide-react';
 import { clsx } from 'clsx';
 
@@ -105,7 +105,7 @@ const FieldPaletteItem = ({ field, onAdd, setHoveredGroupId }: FieldPaletteItemP
             onDragStart={() => {
                 document.body.style.cursor = 'grabbing';
             }}
-            onDrag={(event, info) => {
+            onDrag={(_, info) => {
                 const point = { x: info.point.x, y: info.point.y };
                 const element = document.elementFromPoint(point.x, point.y);
                 if (element) {
@@ -118,7 +118,7 @@ const FieldPaletteItem = ({ field, onAdd, setHoveredGroupId }: FieldPaletteItemP
                     }
                 }
             }}
-            onDragEnd={(event, info) => {
+            onDragEnd={(_, info) => {
                 document.body.style.cursor = '';
                 setHoveredGroupId(null);
 
