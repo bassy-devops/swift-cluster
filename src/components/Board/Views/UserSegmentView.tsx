@@ -1,6 +1,6 @@
-import React, { useState, type KeyboardEvent, useEffect } from 'react';
+import React, { useState, type KeyboardEvent } from 'react';
 import { motion, AnimatePresence, useDragControls, Reorder } from 'framer-motion';
-import { Search, Save, Users, X, Plus, Trash2, GripVertical, MousePointerClick, ArrowDown, Edit2, Loader2, Database, Calculator, CheckCircle2, Clock, Calendar, ChevronDown, ChevronUp, ChevronsDown, ChevronsUp, Star, LayoutGrid, Activity, UserCircle2, ChevronRight } from 'lucide-react';
+import { Search, Save, Users, X, Plus, Trash2, GripVertical, MousePointerClick, ArrowDown, Edit2, Database, Calculator, CheckCircle2, Clock, Calendar, ChevronDown, ChevronUp, ChevronsDown, ChevronsUp, Star, LayoutGrid, Activity, UserCircle2, ChevronRight } from 'lucide-react';
 import { clsx } from 'clsx';
 
 // --- Metadata & Types ---
@@ -149,7 +149,7 @@ const getPreviewDate = (val: number, unit: TimeUnit, dir: RelativeDirection) => 
     return date.toLocaleDateString();
 };
 
-const getConditionPreview = (fieldId: string, value: any, meta: any): string => {
+const getConditionPreview = (_fieldId: string, value: any, meta: any): string => {
     if (!value) return '';
 
     switch (meta.type) {
@@ -755,6 +755,7 @@ export const UserSegmentView: React.FC = () => {
     // --- Actions ---
 
     const toggleFavorite = (e: React.MouseEvent, fieldId: string) => {
+        e.stopPropagation();
         setFavoriteFields(prev =>
             prev.includes(fieldId) ? prev.filter(id => id !== fieldId) : [...prev, fieldId]
         );
