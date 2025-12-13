@@ -65,6 +65,10 @@ export const ChatInterface: React.FC = () => {
 
                 keywords: ['target', 'extract', 'segment', 'export', 'list', 'group'],
                 msg: 'I\'ve pulled up the Target Extraction tool for you.'
+            },
+            'user-segment': {
+                keywords: ['user', '用户', 'ユーザー'],
+                msg: 'Opening the User Segment creation tool. You can define your filter conditions here.'
             }
         };
 

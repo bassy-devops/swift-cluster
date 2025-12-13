@@ -7,7 +7,7 @@ export interface Message {
     timestamp: number;
 }
 
-export type ViewType = 'default' | 'email-campaign' | 'kpi-dashboard' | 'target-extraction' | 'delivery-status' | 'campaign-summary';
+export type ViewType = 'default' | 'email-campaign' | 'kpi-dashboard' | 'target-extraction' | 'delivery-status' | 'campaign-summary' | 'user-segment';
 
 
 

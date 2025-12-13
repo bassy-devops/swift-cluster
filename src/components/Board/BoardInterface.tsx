@@ -5,6 +5,7 @@ import { EmailCampaignView } from './Views/EmailCampaignView';
 import { KPIView } from './Views/KPIView';
 import { TargetExtractionView } from './Views/TargetExtractionView';
 import { DeliveryStatusView } from './Views/DeliveryStatusView';
+import { UserSegmentView } from './Views/UserSegmentView';
 import { CampaignSummaryView } from './Views/CampaignSummaryView';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -23,6 +24,8 @@ export const BoardInterface: React.FC = () => {
                 return <DeliveryStatusView />;
             case 'campaign-summary':
                 return <CampaignSummaryView />;
+            case 'user-segment':
+                return <UserSegmentView />;
             default:
                 return <DefaultView />;
         }
