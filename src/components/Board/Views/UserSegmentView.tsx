@@ -196,7 +196,7 @@ const getConditionPreview = (_fieldId: string, value: any, meta: any): string =>
 
 // --- Components ---
 
-const DateConditionBuilder = ({
+export const DateConditionBuilder = ({
     value,
     onChange
 }: {
@@ -408,7 +408,7 @@ interface FieldPaletteItemProps {
     setHoveredGroupId: (id: string | null) => void;
 }
 
-const FieldPaletteItem = ({ field, isFavorite, onAdd, onToggleFavorite, setHoveredGroupId }: FieldPaletteItemProps) => {
+export const FieldPaletteItem = ({ field, isFavorite, onAdd, onToggleFavorite, setHoveredGroupId }: FieldPaletteItemProps) => {
     const controls = useDragControls();
 
     return (
@@ -469,6 +469,7 @@ const FieldPaletteItem = ({ field, isFavorite, onAdd, onToggleFavorite, setHover
 
             {/* Favorite Star */}
             <button
+                data-testid={`toggle-fav-${field.id}`}
                 onClick={(e) => {
                     e.stopPropagation(); // Prevent card click
                     onToggleFavorite(e, field.id);
@@ -488,7 +489,7 @@ const FieldPaletteItem = ({ field, isFavorite, onAdd, onToggleFavorite, setHover
 };
 
 // Refactored Component for Draggable Item to properly handle Drag Controls
-const DraggableConditionItem = ({
+export const DraggableConditionItem = ({
     fieldId,
     group,
     index,
@@ -569,6 +570,7 @@ const DraggableConditionItem = ({
                         </div>
 
                         <button
+                            data-testid={`remove-field-${imgIdx}-${fieldId}`}
                             onClick={() => removeFieldFromGroup(imgIdx, fieldId)}
                             className="text-slate-500 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all ml-2"
                         >
@@ -1252,6 +1254,7 @@ export const UserSegmentView: React.FC = () => {
 
                                             {groups.length > 1 && (
                                                 <button
+                                                    data-testid={`remove-group-${imgIdx}`}
                                                     onClick={() => removeGroup(imgIdx)}
                                                     className="p-2 rounded-lg text-slate-600 hover:text-red-400 hover:bg-red-500/10 transition-colors z-20"
                                                     title="Remove Group"
